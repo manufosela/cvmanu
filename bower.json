@@ -1,0 +1,23 @@
+{
+  "name": "cvmanu",
+  "homepage": "https://github.com/manufosela/cvmanu",
+  "authors": [
+    "Manuel Juan Fosela Águila <manufosela@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.8.1",
+    "cvitaede-starsrating": "https://github.com/manufosela/cvitaede-starsrating.git#^1.1.0",
+    "cvitaede-cloudcircles": "https://github.com/manufosela/cvitaede-cloudcircles.git#^1.0.0",
+    "cvitaede-image-info": "https://github.com/manufosela/cvitaede-image-info.git#^1.0.0"
+  }
+}
