@@ -1,0 +1,196 @@
+<link rel="import" href="./bower_components/polymer/polymer.html">
+<link rel="import" href="./cvitaede-cloudcircles.html">
+
+<dom-module id="cvitaede-image-info">
+  <template>
+    <style>
+     :host {
+        display: block;
+      }
+    
+     :host .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    
+     :host .imgcont {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 400px;
+        min-width: 200px;
+        max-height: 400px;
+        min-height: 200px;
+        border-radius: 50%;
+        border: 3px solid #F00;
+        overflow: hidden;
+      }
+    
+     :host img {
+        border-radius: 50%;
+      }
+    
+     :host h2,
+     :host h3 {
+        margin: .2em;
+      }
+
+      
+      :host #cloud {
+        position:absolute; 
+        top:3%; left:3%; 
+        background:transparent; 
+        padding:1%;
+        width:30%;
+      }
+      :host #info {
+        position:absolute; 
+        top:3%; left:60%; 
+        background:#EEE; 
+        padding:1%;
+        max-width:30%;
+        -webkit-transition: all 200ms ease-in;
+        -webkit-transform: scale(0); 
+        -ms-transition: all 200ms ease-in;
+        -ms-transform: scale(0); 
+        -moz-transition: all 200ms ease-in;
+        -moz-transform: scale(0);
+        transition: all 200ms ease-in;
+        transform: scale(0);
+      }
+      :host #info.show {
+        -webkit-transition: all 200ms ease-in;
+        -webkit-transform: scale(1); 
+        -ms-transition: all 200ms ease-in;
+        -ms-transform: scale(1); 
+        -moz-transition: all 200ms ease-in;
+        -moz-transform: scale(1);
+        transition: all 200ms ease-in;
+        transform: scale(1);
+      }
+      :host ::content .info p {
+        font-size:1.4rem;
+        text-align: center;
+        justify-content: center;
+      }
+      :host ::content p.main {
+        font-size:1.6rem;
+        font-weight:bold;
+      }
+    </style>
+    <div id="cloud">
+      <cvitaede-cloudcircles id="mainSkills"></cvitaede-cloudcircles>
+    </div>
+    <div id="info"></div>
+    <div class="container">
+      <div class="imgcont" style$="width:{{size}}px; height:{{size}}px" on-tap="toggleInfo">
+        <img src="{{picture}}" width="{{size}}" />
+      </div>
+      <h2>{{title}}</h2>
+      <h3>{{subtitle}}</h3>
+    </div>
+    <div id="blocks"></div>
+  </template> 
+
+  <script>
+  Polymer({
+
+    is: 'cvitaede-image-info',
+
+    properties: {
+      picture: {
+        type: String,
+        value: '',
+      },
+      size: {
+        type: Number,
+        value: 200
+      },
+      title: {
+        type: String,
+        value: 'FAKE TITLE'
+      },
+      subtitle: {
+        type: String,
+        value: 'Fake Subtitle'
+      },
+      _mainSkills: {
+        type: Object
+      },
+      _personaInfo: {
+        type: String
+      }
+    },
+    attached: function() {
+      var els = this.queryAllEffectiveChildren('main-skill');
+      var elements = [];
+      els.forEach(
+        function(item) {
+          elements.push({"name":item.attributes.name.value, "value":item.attributes.value.value, "bg": item.attributes.bg.value});
+        }
+      );
+      this.querySelector('#mainSkills').elements = elements;
+
+      var pinf = '';
+      this.queryAllEffectiveChildren('personal-info').forEach(
+        function(item) {
+          var css = (item.attributes['level']) ?  'class="'+item.attributes.level.value+'"' : '';
+          pinf+='<p ' + css + '>'+item.innerHTML+'</p>';
+        }
+      );
+      this.querySelector('#info').innerHTML = pinf;
+
+      /*var binf = '';
+      this.queryAllEffectiveChildren('block-info').forEach(
+        function(item) { 
+          var title = (item.attributes['title']) ? '<h1>' + item.attributes.title.value + '</h1>' : '';
+
+          binf += '<div class="block">' + title + '<div class="items">' + item.innerHTML + '</div></div>';
+          
+          /*var uls = item.querySelectorAll('ul');
+          uls.forEach(
+            function(ul) {
+              subtitle += '<h2>' + ul.attributes.subtitle.value + '</h2><ul>';
+              var lis = ul.querySelectorAll('li');
+              lis.forEach(
+                function(li) {
+                  var csr = document.createElement('cvitaede-starsrating');
+                  csr.rating = "3";
+                  csr.numStars = "5";
+                  li.appendChild(csr);
+                  //li.innerHTML = '<li>' + li.innerHTML + '< num-stars="5" rating="3"></cvitaede-starsrating></li>';
+                  binf += li.innerHTML;
+                }
+              )
+              binf += '</ul>';
+              //console.log(lis);
+            }
+          ); 
+          binf+='</div></div>';   
+          
+        }
+      );*/
+      //this.querySelector('#blocks').innerHTML = binf;
+      /*setTimeout(function(){
+        this.querySelectorAll('#blocks cvitaede-starsrating').forEach(
+          function(item) {
+            item.drawStars();
+          }
+        );
+      }.bind(this), 1000);*/
+    },
+    toggleInfo: function() {
+      var el = this.querySelector('#info');
+      if (!el.classList.toString().match('show')) {
+        el.classList.add('show');
+      } else {
+        el.classList.remove('show');
+      }
+    }
+
+  });
+
+  </script>
+</dom-module>

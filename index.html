@@ -1,0 +1,110 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>MANU CV</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="cvitaede-image-info.html">
+    <link rel="import" href="cvitaede-cloudcircles.html">
+    <link rel="import" href="cvitaede-starsrating.html">
+    <style>
+      #blocks { display:flex; flex-wrap: wrap; }
+      .blocks {
+          margin:1%;
+          padding:1%;
+          background: transparent;
+          flex-shrink:1;
+          flex-basis:46%;
+          text-align:left;
+          display:flex;
+          flex-wrap: wrap;
+          flex-direction:row;
+      }
+      .blocks .block {
+        flex-basis:46%;
+      }
+      .blocks .block table {
+        margin:0 auto;
+      }      
+      .noflex {
+        display:block;
+        text-align: center;
+        width:100%;
+      }
+      
+      @media screen and (min-width: 400px) {
+          #blocks {
+              flex-direction: row;
+          }
+      }
+      @media screen and (max-width: 400px) {
+          #blocks {
+              flex-direction: column;
+              margin: 0;
+          }
+      }
+    </style>
+  </head>
+  <body>
+    <cvitaede-image-info size="250" picture="./img/manufosela.jpg" title="Manuel Juan Fosela Aguila" subtitle="Javacript composer">
+      <main-skill name="JS" value="200" bg="#EFDA4E"></main-skill>
+      <main-skill name="Web Components" value="150" bg="#F06529"></main-skill>
+      <main-skill name="Node JS" value="100" bg="#879F4C"></main-skill>
+
+      <personal-info level="main">Manuel Juan Fosela Águila</personal-info>
+      <personal-info>+34 639 01 89 87</personal-info>
+      <personal-info>08/05/1971</personal-info>
+    </cvitaede-image-info>
+
+    <div class="blocks">
+      <h1 class="noflex">Best Skills</h1>
+      <div class="block">
+        <h2 class="noflex">FrontEnd</h2>
+        <table>
+          <tr>
+            <td>Javascript ES5/ES6</td>
+            <td><cvitaede-starsrating num-stars="5" rating="4"></cvitaede-starsrating></td>
+          </tr>
+          <tr>
+            <td>Polymer 1.x / 2.0preview</td>
+            <td><cvitaede-starsrating num-stars="5" rating="4"></cvitaede-starsrating></td>
+          </tr>
+          <tr>   
+            <td>Webcomponents</td>
+            <td><cvitaede-starsrating num-stars="5" rating="4"></cvitaede-starsrating></td>
+          </tr>
+          <tr>
+            <td>MeteorJS</td>
+            <td><cvitaede-starsrating num-stars="5" rating="4"></cvitaede-starsrating></td>
+          </tr>
+          <tr>
+            <td>React</td>
+            <td><cvitaede-starsrating num-stars="5" rating="3"></cvitaede-starsrating></td>
+          </tr>
+        </table>
+      </div>
+      <div class="block">
+        <h2 class="noflex">Backend/Build</h2> 
+        <table>
+          <tr>
+            <td>NodeJS</td>
+            <td><cvitaede-starsrating num-stars="5" rating="4"></cvitaede-starsrating></td>
+          </tr>
+          <tr>
+            <td>Gulp</td>
+            <td><cvitaede-starsrating num-stars="5" rating="4"></cvitaede-starsrating></td>
+         </tr>
+          <tr>
+            <td>MongoDB / SQL</td>
+            <td><cvitaede-starsrating num-stars="5" rating="3"></cvitaede-starsrating></td>
+         </tr>
+          <tr>
+            <td>MicroServices</td>
+            <td><cvitaede-starsrating num-stars="5" rating="3"></cvitaede-starsrating></td>
+        </tr>
+      </table>
+    </div>
+
+  </body>
+</html>
