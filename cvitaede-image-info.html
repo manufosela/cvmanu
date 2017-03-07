@@ -1,5 +1,5 @@
 <link rel="import" href="./bower_components/polymer/polymer.html">
-<link rel="import" href="./cvitaede-cloudcircles.html">
+<link rel="import" href="./bower_components/cvitaede-cloudcircles/cvitaede-cloudcircles.html">
 
 <dom-module id="cvitaede-image-info">
   <template>
@@ -141,45 +141,6 @@
         }
       );
       this.querySelector('#info').innerHTML = pinf;
-
-      /*var binf = '';
-      this.queryAllEffectiveChildren('block-info').forEach(
-        function(item) { 
-          var title = (item.attributes['title']) ? '<h1>' + item.attributes.title.value + '</h1>' : '';
-
-          binf += '<div class="block">' + title + '<div class="items">' + item.innerHTML + '</div></div>';
-          
-          /*var uls = item.querySelectorAll('ul');
-          uls.forEach(
-            function(ul) {
-              subtitle += '<h2>' + ul.attributes.subtitle.value + '</h2><ul>';
-              var lis = ul.querySelectorAll('li');
-              lis.forEach(
-                function(li) {
-                  var csr = document.createElement('cvitaede-starsrating');
-                  csr.rating = "3";
-                  csr.numStars = "5";
-                  li.appendChild(csr);
-                  //li.innerHTML = '<li>' + li.innerHTML + '< num-stars="5" rating="3"></cvitaede-starsrating></li>';
-                  binf += li.innerHTML;
-                }
-              )
-              binf += '</ul>';
-              //console.log(lis);
-            }
-          ); 
-          binf+='</div></div>';   
-          
-        }
-      );*/
-      //this.querySelector('#blocks').innerHTML = binf;
-      /*setTimeout(function(){
-        this.querySelectorAll('#blocks cvitaede-starsrating').forEach(
-          function(item) {
-            item.drawStars();
-          }
-        );
-      }.bind(this), 1000);*/
     },
     toggleInfo: function() {
       var el = this.querySelector('#info');
