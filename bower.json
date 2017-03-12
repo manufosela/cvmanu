@@ -18,6 +18,7 @@
     "polymer": "^1.8.1",
     "cvitaede-starsrating": "https://github.com/manufosela/cvitaede-starsrating.git#^1.1.0",
     "cvitaede-cloudcircles": "https://github.com/manufosela/cvitaede-cloudcircles.git#^1.0.0",
-    "cvitaede-image-info": "https://github.com/manufosela/cvitaede-image-info.git#^1.0.0"
+    "cvitaede-image-info": "https://github.com/manufosela/cvitaede-image-info.git#^1.0.0",
+    "cvitaede-job": "https://github.com/manufosela/cvitade-job.git#^1.0.0"
   }
 }
