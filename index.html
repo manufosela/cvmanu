@@ -9,6 +9,7 @@
     <link rel="import" href="bower_components/cvitaede-image-info/cvitaede-image-info.html">
     <link rel="import" href="bower_components/cvitaede-cloudcircles/cvitaede-cloudcircles.html">
     <link rel="import" href="bower_components/cvitaede-starsrating/cvitaede-starsrating.html">
+    <link rel="import" href="bower_components/cvitaede-job/cvitaede-job.html">
     <style is="custom-style">
       cvitaede-image-info {
         --subtitle-color: #F00;
@@ -28,10 +29,13 @@
           flex-wrap: wrap;
           flex-direction:row;
       }
-      .blocks .block {
+      .blocks .half-block {
         flex-basis:46%;
       }
-      .blocks .block table {
+      .blocks .block {
+        flex-basis: 92%;
+      }
+      .blocks .half-block table {
         margin:0 auto;
       }      
       .noflex {
@@ -39,7 +43,25 @@
         text-align: center;
         width:100%;
       }
-      
+      .center { text-align:center; margin:0 auto; }
+
+      .flip {
+        -webkit-animation: flip-scale-2-hor-top 0.5s linear both;
+        -moz-animation: flip-scale-2-hor-top 0.5s linear both;
+        animation: flip-scale-2-hor-top 0.5s linear both;
+      }
+      .scale-in {
+        -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        -moz-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      }
+      .scale-out {
+        -webkit-animation: scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        -moz-animation: scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: scale-out-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+      }
+ 
+
       @media screen and (min-width: 400px) {
           #blocks {
               flex-direction: row;
@@ -52,6 +74,8 @@
           }
       }
     </style>
+    <script>
+    </script>
   </head>
   <body>
     <cvitaede-image-info size="250" picture="./img/manufosela.jpg" title="Manuel Juan Fosela Aguila" subtitle="Javacript composer">
@@ -70,59 +94,88 @@
     </cvitaede-image-info>
 
 <!-- PONER LAS SKILLS AGRUPADAS EN NIVELES: js, html, css, node... 10 estrellas. php, meteorjs, mongo.... 8 estrellas, java 5 estrellas ...-->
-
+    <div class="blocks">
+      <h1 class="noflex">Education</h1>
+      <h2 class="block center">Telecommunications Engineering. Specialty in Telematics</h2>
+    </div>
 
     <div class="blocks">
-      <h1 class="noflex">Best Skills</h1>
-      <div class="block">
-        <h2 class="noflex">FrontEnd</h2>
-        <table>
-          <tr>
-            <td>Javascript ES5/ES6</td>
-            <td><cvitaede-starsrating num-stars="5" rating="4"></cvitaede-starsrating></td>
-          </tr>
-          <tr>
-            <td>Polymer 1.x / 2.x</td>
-            <td><cvitaede-starsrating num-stars="5" rating="4"></cvitaede-starsrating></td>
-          </tr>
-          <tr>   
-            <td>Webcomponents</td>
-            <td><cvitaede-starsrating num-stars="5" rating="4"></cvitaede-starsrating></td>
-          </tr>
-          <tr>
-            <td>MeteorJS Platform</td>
-            <td><cvitaede-starsrating num-stars="5" rating="4"></cvitaede-starsrating></td>
-          </tr>
-          <tr>
-            <td>ReactJS Ecosystem</td>
-            <td><cvitaede-starsrating num-stars="5" rating="3"></cvitaede-starsrating></td>
-          </tr>
-        </table>
-      </div>
-      <div class="block">
-        <h2 class="noflex">Backend/Build</h2> 
-        <table>
-          <tr>
-            <td>NodeJS</td>
-            <td><cvitaede-starsrating num-stars="5" rating="4"></cvitaede-starsrating></td>
-          </tr>
-          <tr>
-            <td>Gulp</td>
-            <td><cvitaede-starsrating num-stars="5" rating="4"></cvitaede-starsrating></td>
-         </tr>
-          <tr>
-            <td>MongoDB / SQL</td>
-            <td><cvitaede-starsrating num-stars="5" rating="3"></cvitaede-starsrating></td>
-         </tr>
-          <tr>
-            <td>MicroServices</td>
-            <td><cvitaede-starsrating num-stars="5" rating="3"></cvitaede-starsrating></td>
-        </tr>
-      </table>
+      <h1 class="noflex">Extract</h1>
+      <h4 class="block">
+      <ul>
+        <li>Developing web 20 years ago.</li>
+        <li>A good P.A.R.T. developer. (Proactive, Resolutive, Adaptative and Technological).</li>  
+        <li>I love to test new technologies and libraries and frameworks.</li>
+        <li>Now I’m playing with Meteor+Polymer, Meteor+VueJS and Apolo/GraphQL.</li>
+      </ul>
     </div>
+
+    <div class="blocks">
+      <h1 class="noflex">Skills</h1>
+      <div class="block">
+        <p>Javascript. ES5 and ES6. Polymer. WebComponents. NodeJS. HTML5. CSS3
+        <cvitaede-starsrating num-stars="10" rating="10"></cvitaede-starsrating>
+        <p>MeteorJS. Hibrids apps with Cordova and Ionic. Responsive. UX.</p>
+        <cvitaede-starsrating num-stars="10" rating="9"></cvitaede-starsrating>
+        <p>Git. ReactJS. VueJS. Angular 2. PHP (LAMP). MEAN Stack. Shell Script. Perl. Python. C.</p>
+        <cvitaede-starsrating num-stars="10" rating="9"></cvitaede-starsrating>
+        <p>Webservices and microservices. Linux admin. Grunt and Gulp.</p>
+        <cvitaede-starsrating num-stars="10" rating="8"></cvitaede-starsrating>
+        <p>Agile. XP and TDD. Scrum, LEAN.</p>
+        <cvitaede-starsrating num-stars="10" rating="7"></cvitaede-starsrating>
+        <p>Mysql, MongoDB, Oracle, PostgreSQL. XML / XSL. CVS, SVN.</p>
+        <cvitaede-starsrating num-stars="10" rating="6"></cvitaede-starsrating>
+        <p>Android apps with Java</p>
+        <cvitaede-starsrating num-stars="10" rating="5"></cvitaede-starsrating>
+      </div>
+    </div>
+
     <div class="block">
-      EDUCATION.
-Telecommunications Engineering. Specialty in Telematics.
+      <h2 class="noflex">MY JOBS</h2>
+      <cvitaede-job>
+        <job-position>Architecture and Development Front-End & Program Manager at Kairós Digital Solutions S.L.</job-position>
+        <job-description>Consultancy, architecture and development of web applications for banking (BBVA and ING) Javascript. ES6. Polymer. NodeJS. REST. Gulp. Bamboo. Git. Jenkins. Travis.</job-description>
+        <job-date>From October 2015 to date</job-date>
+      </cvitaede-job>
+      <cvitaede-job>
+        <job-position>Technical Team Leader at Orange.</job-position>
+        <job-description>PHP5, Javascript (AJAX, JSON, XML), AngularJS JQuery/JQuery-mobile. HTML5/CSS3. Web Architecture. Webservices. SVN and CVS. SCRUM. Leading small teams. Development of web applications, for Android and iPhone / iPad mobile devices. GWT. C. Web app development Orange rate “canguro”. Migrating eCommerce systems to ATG10. Development of Orange Content Manager System called SED for Orange portals in Spain, France, UK, Holland and Poland.</job-description>
+        <job-date>From September 2008 to September 2015</job-date>
+      </cvitaede-job>
+      <cvitaede-job>
+        <job-position>Analyst - Web Developer at hotelsearch.com.</job-position>
+        <job-description>PHP5, javascript (AJAX, JSON, jQuery and dojo libraries), XHTML, CSS2, XML/XSLT, Web Service (REST and SOAP); Data bases PostgreSQL e IBM DB2; “eXtreme Programming” and Test Driven Development (Agile Development Method)</job-description>
+        <job-date>From October  2006 to September 2008</job-date>
+      </cvitaede-job>
+      <cvitaede-job>
+        <job-position>Analyst - Web Developer at  Tiempolibre S.A. (Viajes Marsans group).</job-position>
+        <job-description> Tourism sector (B2B and B2C) PHP4, javascript (AJAX, Prototype and Scriptaculous libraries), XHTML, CSS, XML/XSL, Web Service (REST and SOAP). Perl; ASP3 and Java occasionally; Data Basess MySQL 5.0 and ORACLE 10g; MSSQL e Interbase (IBM) occasionally. A Borland C++ 
+        Application maintenance and LAMP servers maintenance (debian and gentoo). Webs: www.hotelcolor.es, www.mundicolor.es (B2B) and travel agencies web apps from hotelcolor (B2C)</job-description>
+        <job-date>From October 2004 to October 2006</job-date>
+      </cvitaede-job>
+      <cvitaede-job>
+        <job-position>Analyst - Web Developer at  wanadoo.es S.L. (France Telecom Group Spain), previously eresmas.com (grupo Auna)</job-position>
+        <job-description>PHP4, Perl, ASP, Java, Javascript, MySQL, CSS and HTML associated web pages of www.eresmas.com (www.basefinanciera.com, www.mundopadres.com,  www.estilismo.com, www.segundosfuera.com,  www.oniric.com )</job-description>
+        <job-date>From March 2002 to October 2004</job-date>
+      </cvitaede-job>
+      <cvitaede-job>
+        <job-position>Web Developer at plus.es (Sogecable/PRISA group)</job-position>
+        <job-description>ASP, Javascript, SQL/ORACLE, XML/XSL, CSS and DHTML.</job-description>
+        <job-date>From March 1999 to March 2002</job-date>
+      </cvitaede-job>
+    </div>
+
+    <div class="blocks">
+      <h2 class="noflex">Meetups</h2>
+      <div class="block">
+        <ul>
+          <li>Co-organizer of Meetups MadridJS and NodeJS Madrid</li>
+          <li>Co-organizer of PolymerDay in Madrid</li>
+        </ul>
+      </div>
+    </div>
+    <!--
+
 
 TECHNICAL SKILLS
 Javascript, ES5 and ES6, Polymer, WebComponents, nodeJS, HTML5, CSS3.
@@ -139,30 +192,15 @@ XML / XSL
 Control Version cvs, svn, git
 Android apps with Java
 
-I love to test new technologies and libraries and frameworks. Now I’m playing with Meteor+Polymer, Meteor+VueJS and Apolo/GraphQL.
 
-Co-organizer of Meetups MadridJS and NodeJS Madrid
-Co-organizer of PolymerDay in Madrid
+
+
 
 http://codepen.io/manufosela/
 http://www.github.com/manufosela
 http://stackoverflow.com/users/1833198/manufosela?tab=profile
 
-MY JOBS
-Architecture and Development Front-End & Program Manager at Kairós Digital Solutions S.L. Consultancy, architecture and development of web applications for banking (BBVA and ING) Javascript. ES6. Polymer. NodeJS. REST. Gulp. Bamboo. Git. Jenkins. Travis. From October 2015 to date.
-
-Technical Team Leader at Orange. PHP5, Javascript (AJAX, JSON, XML), AngularJS JQuery/JQuery-mobile. HTML5/CSS3. Web Architecture. Webservices. SVN and CVS. SCRUM. Leading small teams. Development of web applications, for Android and iPhone / iPad mobile devices. GWT. C. Web app development Orange rate “canguro”. Migrating eCommerce systems to ATG10. Development of Orange Content Manager System called SED for Orange portals in Spain, France, UK, Holland and Poland. From September 2008 to September 2015.
-
-Analyst - Web Developer at hotelsearch.com. PHP5, javascript (AJAX, JSON, jQuery and dojo libraries), XHTML, CSS2, XML/XSLT, Web Service (REST and SOAP); Data bases PostgreSQL e IBM DB2; “eXtreme Programming” and Test Driven Development (Agile Development Method). From October  2006 to September 2008. 
-
-Analyst - Web Developer at  Tiempolibre S.A. (Viajes Marsans group). Tourism sector (B2B and B2C) PHP4, javascript (AJAX, Prototype and Scriptaculous libraries), XHTML, CSS, XML/XSL, Web Service (REST and SOAP). Perl; ASP3 and Java occasionally; Data Basess MySQL 5.0 and ORACLE 10g; MSSQL e Interbase (IBM) occasionally. A Borland C++ 
-Application maintenance and LAMP servers maintenance (debian and gentoo). Webs: www.hotelcolor.es, www.mundicolor.es (B2B) and travel agencies web apps from hotelcolor (B2C). From October 2004 to October 2006. 
-
-Analyst - Web Developer at  wanadoo.es S.L. (France Telecom Group Spain), previously eresmas.com (grupo Auna). PHP4, Perl, ASP, Java, Javascript, MySQL, CSS and HTML associated web pages of www.eresmas.com (www.basefinanciera.com, www.mundopadres.com,  www.estilismo.com, www.segundosfuera.com,  www.oniric.com ). From March 2002 to October 2004.
-
-Web Developer at plus.es (Sogecable/PRISA group). ASP, Javascript, SQL/ORACLE, XML/XSL, CSS and DHTML. From March 1999 to March 2002.
-
-    </div>
+-->
 
   </body>
 </html>
